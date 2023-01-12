@@ -52,5 +52,12 @@ public class HomeTest extends BaseClass{
   	  hmobj.navigateBack();
     }
   
+    @Test(priority=5)
+    public void managesliderclick() throws IOException {
+  	  HomePage hmobj=new HomePage(driver);
+  	  hmobj.managepageslink();
+  	  Assert.assertEquals(hmobj.getmanagesliderheading(),Constants.manageslider);
+  	  hmobj.navigateBack();
+    }
     
 }

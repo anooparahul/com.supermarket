@@ -10,12 +10,14 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.supermarket.utilities.ExcelUtility;
+import com.supermarket.utilities.GeneralUtilities;
 import com.supermarket.utilities.WaitUtility;
 
 public class AdminUsersPage extends LoginPage {
 	LoginPage lpobj;
 	ExcelUtility exobj=new ExcelUtility();
 	WaitUtility wtobj=new WaitUtility();
+	GeneralUtilities guobj=new GeneralUtilities();
 	HomePage hmobj;
 	public AdminUsersPage(WebDriver driver) {
 		super(driver);
@@ -84,12 +86,12 @@ public class AdminUsersPage extends LoginPage {
 	WebElement deletebutton;
 	
 	
-	public void adduser() {
-		newbutton.click();
-		username.sendKeys("Anoopa");
-		password.sendKeys("password1");
+	public void adduser() throws IOException {
+		guobj.clickCommand(newbutton);
+		guobj.sendkeysCommand(username, exobj.readStringData(4, 1));
+		guobj.sendkeysCommand(password, exobj.readStringData(5, 1));
 		Select s=new Select(usertype);
-		s.selectByValue("staff");
+		s.selectByValue(exobj.readStringData(5, 1));
 		saveButton.click();
 	}
 	
@@ -120,16 +122,17 @@ public class AdminUsersPage extends LoginPage {
 		home.click();
 	}
 	
-	public void searchaddeduser() {
-		search.click();
-		usernamesearch.sendKeys("Anoopa");
+	public void searchaddeduser() throws IOException {
+		guobj.clickCommand(search);
+		guobj.sendkeysCommand(usernamesearch, exobj.readStringData(4, 1));
 		Select s=new Select(usertypesearch);
 		s.selectByValue("staff");
 		Searchbutton.click();
 	}
 	
 	public String passworddetailscheck() throws InterruptedException {
-		detailssymbol.click();
+		guobj.clickCommand(detailssymbol);
+		
 		Thread.sleep(5000);
 		String value=passworddetails.getText();
 		System.out.println(value);
@@ -139,20 +142,23 @@ public class AdminUsersPage extends LoginPage {
 
 	public String userstatusdeactvate() {
 		//status.getText();
-		statusactive.click();
+		guobj.clickCommand(statusactive);
+		
 		String value=statusdeactive.getText();
 		return value;
 	}
 	
 	public String userstatusactvate() {
 		//status.getText();
-		statusdeactive.click();
+		guobj.clickCommand(statusdeactive);
+		
 		String value=statusactive.getText();
 		return value;
 	}
 	
 	public void deleteuser() {
-		deletebutton.click();
+		guobj.clickCommand(deletebutton);
+		
 		driver.switchTo().alert().accept();
 	}
 }

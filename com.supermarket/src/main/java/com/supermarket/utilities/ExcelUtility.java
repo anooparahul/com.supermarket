@@ -19,7 +19,7 @@ public class ExcelUtility {
 	{ 
 		
 		
-		f=new FileInputStream("C:\\Users\\Rahul V S\\Desktop\\Anoopa\\eclipse-workspace\\com.supermarket\\src\\main\\resources\\excelFile\\TestData.xlsx"); 
+		f=new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\resources\\excelFile\\TestData.xlsx"); 
 		w=new XSSFWorkbook(f);           
 		s=w.getSheet("Sheet1");
 		Row r= s.getRow(row);
@@ -29,7 +29,7 @@ public class ExcelUtility {
 	}
 	public static String readIntegerData(int row,int column) throws IOException
 	{
-		f=new FileInputStream("C:\\Users\\Rahul V S\\Desktop\\Anoopa\\eclipse-workspace\\com.supermarket\\src\\main\\resources\\excelFile\\TestData.xlsx"); 
+		f=new FileInputStream("System.getProperty(\"user.dir\")+\\src\\main\\resources\\excelFile\\TestData.xlsx"); 
 		w=new XSSFWorkbook(f);            
 		s=w.getSheet("Sheet1");
 		Row r= s.getRow(row);

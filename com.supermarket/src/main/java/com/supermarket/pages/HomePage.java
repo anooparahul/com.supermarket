@@ -45,6 +45,9 @@ public class HomePage extends LoginPage {
 	@FindBy(xpath="//a[text()='More info ' and@href='https://groceryapp.uniqassosiates.com/admin/list-category']") 
 	WebElement categorylink;
 	
+	@FindBy(xpath="//a[text()='More info ' and@href='https://groceryapp.uniqassosiates.com/admin/list-slider']")
+	WebElement listsliderlink;
+	
 	@FindBy(xpath="//a[text()='Home']")
 	WebElement home;
 	
@@ -59,6 +62,10 @@ public class HomePage extends LoginPage {
 	
 	@FindBy(xpath="//h1[@class='m-0 text-dark']")
 	WebElement manageDeliveryBoyheading;
+	
+	@FindBy(xpath="//h1[@class='m-0 text-dark']")
+	WebElement listsliderheading;
+	
 	
 	public void managepageslink() {
 		guobj.clickCommand(managepageslink);
@@ -77,6 +84,9 @@ public class HomePage extends LoginPage {
 		
 	}
 	
+	public void listsliderlink() {
+		guobj.clickCommand(listsliderlink);
+	}
 	
 	public void navigateToHomePage() throws IOException {
 		  lpobj=new LoginPage(driver);
@@ -105,6 +115,10 @@ public class HomePage extends LoginPage {
 	}
 	public String getdelboyheading() {
 		String text=manageDeliveryBoyheading.getText();
+		return text;
+	}
+	public String getmanagesliderheading() {
+		String text=listsliderheading.getText();
 		return text;
 	}
 	

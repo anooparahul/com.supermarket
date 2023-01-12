@@ -37,15 +37,14 @@ public class AdminUserTest extends BaseClass {
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
 	  //admobj.passworddetailscheck();
 	  String value=admobj.passworddetailscheck();
-	  System.out.println(value);
-  	  Assert.assertEquals(value,Constants.password);
+	  Assert.assertEquals(value,Constants.password,"Psssed");
 
   }
   @Test(priority=4)
   public void makeuserdeactive() {
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
 	  String value=admobj.userstatusdeactvate();
-	  Assert.assertEquals(value,Constants.deactive);
+	  Assert.assertEquals(value,Constants.deactive,"Passed");
   }
   @Test(priority=5)
   public void makeuseractive() {
