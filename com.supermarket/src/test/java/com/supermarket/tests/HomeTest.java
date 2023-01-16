@@ -6,13 +6,16 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.supermarket.constants.Constants;
+import com.supermarket.extendreports.TestListener;
 import com.supermarket.pages.HomePage;
 import com.supermarket.pages.LoginPage;
 import com.supermarket.utilities.ExcelUtility;
 import com.supermarket.utilities.WaitUtility;
 
 public class HomeTest extends BaseClass{
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 	LoginPage lpobj;
 	
 	ExcelUtility exobj=new ExcelUtility();
@@ -24,7 +27,7 @@ public class HomeTest extends BaseClass{
 	  HomePage hmobj=new HomePage(driver);
 	  //hmobj.navigateToHomePage();
 	  hmobj.managepageslink();
-	  Assert.assertEquals(hmobj.getmanagepagesheading(),Constants.manageuserheading);
+	  Assert.assertEquals(hmobj.getmanagepagesheading(),Constants.manageuserheading,"Passed");
 	  hmobj.navigateBack();
   }
     @Test(priority=1,enabled=true,groups="sanity")
@@ -33,14 +36,14 @@ public class HomeTest extends BaseClass{
   	  HomePage hmobj=new HomePage(driver);
   	  hmobj.navigateToHomePage();
   	  hmobj.adminUserslink();
-  	  Assert.assertEquals(hmobj.getadminusersheading(),Constants.manageadminheading);
+  	  Assert.assertEquals(hmobj.getadminusersheading(),Constants.manageadminheading,"Passed");
   	  hmobj.navigateBack();
     }
     @Test(priority=3)
     public void categorylinkclick() throws IOException {
   	  HomePage hmobj=new HomePage(driver);
   	  hmobj.categorylink();
-  	  Assert.assertEquals(hmobj.getcategoryheading(),Constants.categoryheading);
+  	  Assert.assertEquals(hmobj.getcategoryheading(),Constants.categoryheading,"Passed");
   	  hmobj.navigateBack();
     }
     
@@ -48,15 +51,15 @@ public class HomeTest extends BaseClass{
     public void deliveryboylinkclick() throws IOException {
   	  HomePage hmobj=new HomePage(driver);
   	  hmobj.deliveryboylink();
-  	  Assert.assertEquals(hmobj.getdelboyheading(),Constants.deliveryBoyheading);
+  	  Assert.assertEquals(hmobj.getdelboyheading(),Constants.deliveryBoyheading,"Passed");
   	  hmobj.navigateBack();
     }
   
     @Test(priority=5)
     public void managesliderclick() throws IOException {
   	  HomePage hmobj=new HomePage(driver);
-  	  hmobj.managepageslink();
-  	  Assert.assertEquals(hmobj.getmanagesliderheading(),Constants.manageslider);
+  	  hmobj.listsliderlink();
+  	  Assert.assertEquals(hmobj.getmanagesliderheading(),Constants.manageslider,"Passed");
   	  hmobj.navigateBack();
     }
     

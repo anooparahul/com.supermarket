@@ -5,11 +5,14 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.supermarket.constants.Constants;
+import com.supermarket.extendreports.TestListener;
 import com.supermarket.pages.AdminUsersPage;
 import com.supermarket.pages.HomePage;
 
 public class AdminUserTest extends BaseClass {
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
   @Test(priority=1)
   public void addingUser() throws IOException, InterruptedException {
 	  
@@ -29,7 +32,7 @@ public class AdminUserTest extends BaseClass {
 	  //admobj.navigateToAdminUserPage();
 	  admobj.searchaddeduser();
 	  admobj.addeddatacheck();
-	  //admobj.navigatetoHome();
+	  
   }
   
   @Test(priority=3)

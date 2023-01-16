@@ -97,7 +97,7 @@ public class ManageDeliveryBoyPage extends LoginPage {
 		guobj.sendkeysCommand(username, "anoopa");
 		guobj.sendkeysCommand(password, "password1");
 		Robot robot=new Robot();
-		robot.delay(350);
+		robot.delay(450);
 		robot.keyPress(KeyEvent.VK_TAB);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		Thread.sleep(5000);
@@ -116,22 +116,20 @@ public class ManageDeliveryBoyPage extends LoginPage {
 		
 	}
 	public String passworddetailscheck() throws InterruptedException {
-		passwordShow.click();
+		guobj.clickCommand(passwordShow);
 		Thread.sleep(5000);
 		String value=passwordDetails.getText();
-		//System.out.println(value);
 		return value;
 	
 	}
 	public String userstatusdeactvate() {
-		//status.getText();
-		statusactive.click();
+		guobj.clickCommand(statusactive);
 		String value=statusdeactive.getText();
 		return value;
 	}
 	
 	public String userstatusactvate() {
-		//status.getText();
+		guobj.clickCommand(statusdeactive);
 		statusdeactive.click();
 		String value=statusactive.getText();
 		return value;
@@ -152,7 +150,7 @@ public class ManageDeliveryBoyPage extends LoginPage {
 		guobj.clearCommand(password);
 		guobj.sendkeysCommand(password, "password2");
 		Robot robot=new Robot();
-		robot.delay(350);
+		robot.delay(450);
 		robot.keyPress(KeyEvent.VK_TAB);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		Thread.sleep(5000);
@@ -162,7 +160,7 @@ public class ManageDeliveryBoyPage extends LoginPage {
 	}
 	
 	public String deleteuser() {
-		deleteIcon.click();
+		guobj.clickCommand(deleteIcon);
 		driver.switchTo().alert().accept();
 		String value=deletemessage.getText();
 		//System.out.println(value);

@@ -91,7 +91,7 @@ public class AdminUsersPage extends LoginPage {
 		guobj.sendkeysCommand(username, exobj.readStringData(4, 1));
 		guobj.sendkeysCommand(password, exobj.readStringData(5, 1));
 		Select s=new Select(usertype);
-		s.selectByValue(exobj.readStringData(5, 1));
+		s.selectByValue(exobj.readStringData(6, 1));
 		saveButton.click();
 	}
 	
@@ -126,7 +126,7 @@ public class AdminUsersPage extends LoginPage {
 		guobj.clickCommand(search);
 		guobj.sendkeysCommand(usernamesearch, exobj.readStringData(4, 1));
 		Select s=new Select(usertypesearch);
-		s.selectByValue("staff");
+		s.selectByValue(exobj.readStringData(6, 1));
 		Searchbutton.click();
 	}
 	

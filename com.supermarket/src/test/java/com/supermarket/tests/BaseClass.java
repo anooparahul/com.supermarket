@@ -3,6 +3,7 @@ package com.supermarket.tests;
 import org.testng.annotations.Test;
 import org.testng.annotations.*;
 
+import com.supermarket.extendreports.ExtentManager;
 import com.supermarket.utilities.GeneralUtilities;
 
 import org.testng.annotations.BeforeMethod;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
@@ -65,8 +67,9 @@ public class BaseClass {
 	  
   }
 
-  @BeforeSuite
-  public void beforeSuite() {
+  @BeforeSuite(alwaysRun=true)
+  public void createReport(final ITestContext testContext) {
+	  ExtentManager.createInstance().createTest(testContext.getName(), "message");
   }
 
   @AfterSuite

@@ -2,7 +2,9 @@ package com.supermarket.tests;
 
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.supermarket.constants.Constants;
+import com.supermarket.extendreports.TestListener;
 import com.supermarket.pages.LoginPage;
 import com.supermarket.utilities.DataProviderUtility;
 import com.supermarket.utilities.ExcelUtility;
@@ -23,6 +25,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 public class LoginTest extends BaseClass {
+	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 	LoginPage lpobj;
 	ExcelUtility exobj=new ExcelUtility();
 	//String url="https://groceryapp.uniqassosiates.com/admin/login";
