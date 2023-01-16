@@ -85,7 +85,7 @@ public class HomePage extends LoginPage {
 	WebElement listuser;
 	
 	
-	@FindBy(xpath="//a[text()='More info ' and@href='https://groceryapp.uniqassosiates.com/admin/list-location") 
+	@FindBy(xpath="//a[text()='More info ' and@href='https://groceryapp.uniqassosiates.com/admin/list-location']") 
 	WebElement managelocationlink;
 	
 	@FindBy(xpath="//h1[@class='m-0 text-dark']")

@@ -10,6 +10,7 @@
       <class name="com.supermarket.tests.HomeTest"/>
       <class name="com.supermarket.tests.AdminUserTest"/>
        <class name="com.supermarket.tests.DeliveryBoyTest"/>
-    </classes>
+             <class name="com.supermarket.tests.ManageListPageTest"/>
+       </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

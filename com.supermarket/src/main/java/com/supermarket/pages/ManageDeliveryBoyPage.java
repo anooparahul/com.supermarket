@@ -88,14 +88,14 @@ public class ManageDeliveryBoyPage extends LoginPage {
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
 	WebElement deletemessage;
 	
-	public String addDeliveryBoy() throws AWTException, InterruptedException {
+	public String addDeliveryBoy() throws AWTException, InterruptedException, IOException {
 		guobj.clickCommand(newButton);
-		guobj.sendkeysCommand(name, "Anoopa");
-		guobj.sendkeysCommand(email, "asugathan@as.com");
+		guobj.sendkeysCommand(name, exobj.readStringData(10, 1));
+		guobj.sendkeysCommand(email, exobj.readStringData(11, 1));
 		guobj.sendkeysCommand(phone, "1023456789");
-		guobj.sendkeysCommand(address, "Abcd 4/1, Trivandrum");
-		guobj.sendkeysCommand(username, "anoopa");
-		guobj.sendkeysCommand(password, "password1");
+		guobj.sendkeysCommand(address, exobj.readStringData(13, 1));
+		guobj.sendkeysCommand(username, exobj.readStringData(14, 1));
+		guobj.sendkeysCommand(password, exobj.readStringData(15, 1));
 		Robot robot=new Robot();
 		robot.delay(450);
 		robot.keyPress(KeyEvent.VK_TAB);
@@ -105,9 +105,9 @@ public class ManageDeliveryBoyPage extends LoginPage {
 		return value;
 	}
 	
-	public String searchDeliveryBoy() {
+	public String searchDeliveryBoy() throws IOException {
 		guobj.clickCommand(searchButton);
-		guobj.sendkeysCommand(namesearch, "Anoopa");
+		guobj.sendkeysCommand(namesearch, exobj.readStringData(10, 1));
 		guobj.clickCommand(searchButton1);
 		String value=newDeliveryboy.getText();
 		
@@ -143,12 +143,12 @@ public class ManageDeliveryBoyPage extends LoginPage {
 	  	  hmobj.deliveryboylink();
 	}
 
-	public String  editDeliveryboy() throws AWTException, InterruptedException {
+	public String  editDeliveryboy() throws AWTException, InterruptedException, IOException {
 		guobj.clickCommand(editIcon);
 		guobj.clearCommand(username);
-		guobj.sendkeysCommand(username,"sanoopa");
+		guobj.sendkeysCommand(username,exobj.readStringData(17, 1));
 		guobj.clearCommand(password);
-		guobj.sendkeysCommand(password, "password2");
+		guobj.sendkeysCommand(password, exobj.readStringData(18, 1));
 		Robot robot=new Robot();
 		robot.delay(450);
 		robot.keyPress(KeyEvent.VK_TAB);

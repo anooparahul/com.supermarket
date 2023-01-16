@@ -52,7 +52,7 @@ public class DeliveryBoyTest extends BaseClass {
 	  
 	
 	@Test(priority=6)
-	public void updateDeliveryBoy() throws AWTException, InterruptedException {
+	public void updateDeliveryBoy() throws AWTException, InterruptedException, IOException {
 		ManageDeliveryBoyPage mdpobj=new ManageDeliveryBoyPage(driver);
 		//mdpobj.navigatetodeliveryboy();
 		 String value=mdpobj.editDeliveryboy();
