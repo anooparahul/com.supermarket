@@ -35,7 +35,7 @@ public class AdminUserTest extends BaseClass {
 	  
   }
   
-  @Test(priority=3)
+  @Test(priority=5)
   public void passworddetails() throws InterruptedException {
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
 	  //admobj.passworddetailscheck();
@@ -43,13 +43,13 @@ public class AdminUserTest extends BaseClass {
 	  Assert.assertEquals(value,Constants.password,"Psssed");
 
   }
-  @Test(priority=4)
+  @Test(priority=3)
   public void makeuserdeactive() {
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
 	  String value=admobj.userstatusdeactvate();
 	  Assert.assertEquals(value,Constants.deactive,"Passed");
   }
-  @Test(priority=5)
+  @Test(priority=4)
   public void makeuseractive() {
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
 	  String value=admobj.userstatusactvate();

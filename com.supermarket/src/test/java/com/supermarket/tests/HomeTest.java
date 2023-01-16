@@ -63,4 +63,35 @@ public class HomeTest extends BaseClass{
   	  hmobj.navigateBack();
     }
     
+    @Test(priority=6)
+    public void manageproductlinkclick() throws IOException {
+  	  HomePage hmobj=new HomePage(driver);
+  	  hmobj.manageproductlink();
+  	  Assert.assertEquals(hmobj.getmanageproduheading(),Constants.managesproduct,"Passed");
+  	  hmobj.navigateBack();
+    }
+    
+    @Test(priority=7)
+    public void manageoffercodelinkclick() throws IOException {
+  	  HomePage hmobj=new HomePage(driver);
+  	  hmobj.manageoffercodelink();
+  	  Assert.assertEquals(hmobj.getmanageoffercodeheading(),Constants.managesoffercode,"Passed");
+  	  hmobj.navigateBack();
+    }
+    
+    @Test(priority=8)
+    public void manageuserlinkclick() throws IOException {
+  	  HomePage hmobj=new HomePage(driver);
+  	  hmobj.manageuserlink();
+  	  Assert.assertEquals(hmobj.getmanageuserheading(),Constants.listusers,"Passed");
+  	  hmobj.navigateBack();
+    }
+    
+    @Test(priority=9)
+    public void managelocationlinkclick() throws IOException {
+  	  HomePage hmobj=new HomePage(driver);
+  	  hmobj.managelistlink();
+  	  Assert.assertEquals(hmobj.getmanagelocationheading(),Constants.listlocation,"Passed");
+  	  hmobj.navigateBack();
+    }
 }

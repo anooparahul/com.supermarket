@@ -66,6 +66,30 @@ public class HomePage extends LoginPage {
 	@FindBy(xpath="//h1[@class='m-0 text-dark']")
 	WebElement listsliderheading;
 	
+	@FindBy(xpath="//a[text()='More info ' and@href='https://groceryapp.uniqassosiates.com/admin/list-product']") 
+	WebElement manageproductlink;
+	
+	@FindBy(xpath="//h1[@class='m-0 text-dark']")
+	WebElement listproducts;
+	
+	@FindBy(xpath="//a[text()='More info ' and@href='https://groceryapp.uniqassosiates.com/admin/list-offercode']") 
+	WebElement manageoffercodelink;
+	
+	@FindBy(xpath="//h1[@class='m-0 text-dark']")
+	WebElement listoffercode;
+	
+	@FindBy(xpath="//a[text()='More info ' and@href='https://groceryapp.uniqassosiates.com/admin/list-user']") 
+	WebElement managuserlink;
+	
+	@FindBy(xpath="//h1[@class='m-0 text-dark']")
+	WebElement listuser;
+	
+	
+	@FindBy(xpath="//a[text()='More info ' and@href='https://groceryapp.uniqassosiates.com/admin/list-location") 
+	WebElement managelocationlink;
+	
+	@FindBy(xpath="//h1[@class='m-0 text-dark']")
+	WebElement listlocation;
 	
 	public void managepageslink() {
 		guobj.clickCommand(managepageslink);
@@ -84,8 +108,25 @@ public class HomePage extends LoginPage {
 		
 	}
 	
+	public void manageproductlink() {
+		guobj.clickCommand(manageproductlink);
+	}
+	
+	public void manageoffercodelink() {
+		guobj.clickCommand(manageoffercodelink);
+	}
+	
+	
 	public void listsliderlink() {
 		guobj.clickCommand(listsliderlink);
+	}
+	
+	public void manageuserlink() {
+		guobj.clickCommand(managuserlink);
+	}
+	
+	public void managelistlink() {
+		guobj.clickCommand(managelocationlink);
 	}
 	
 	public void navigateToHomePage() throws IOException {
@@ -119,6 +160,26 @@ public class HomePage extends LoginPage {
 	}
 	public String getmanagesliderheading() {
 		String text=listsliderheading.getText();
+		return text;
+	}
+	
+	public String getmanageproduheading() {
+		String text=listproducts.getText();
+		return text;
+	}
+	
+	public String getmanageoffercodeheading() {
+		String text=listoffercode.getText();
+		return text;
+	}
+	
+	public String getmanageuserheading() {
+		String text=listuser.getText();
+		return text;
+	}
+	
+	public String getmanagelocationheading() {
+		String text=listlocation.getText();
 		return text;
 	}
 	
