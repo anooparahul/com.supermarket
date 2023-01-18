@@ -12,13 +12,14 @@ import org.openqa.selenium.support.FindBy;
 
 import com.supermarket.utilities.ExcelUtility;
 import com.supermarket.utilities.GeneralUtilities;
+import com.supermarket.utilities.WaitUtility;
 
 public class ManageDeliveryBoyPage extends LoginPage {
 	LoginPage lpobj;
 	HomePage hmobj=new HomePage(driver);
 	ExcelUtility exobj=new ExcelUtility();
 	GeneralUtilities guobj=new GeneralUtilities();
-	
+	WaitUtility wtobj=new WaitUtility();
 
 	public ManageDeliveryBoyPage(WebDriver driver) {
 		super(driver);
@@ -90,6 +91,7 @@ public class ManageDeliveryBoyPage extends LoginPage {
 	
 	public String addDeliveryBoy() throws AWTException, InterruptedException, IOException {
 		guobj.clickCommand(newButton);
+		
 		guobj.sendkeysCommand(name, exobj.readStringData(10, 1));
 		guobj.sendkeysCommand(email, exobj.readStringData(11, 1));
 		guobj.sendkeysCommand(phone, "1023456789");
@@ -100,7 +102,7 @@ public class ManageDeliveryBoyPage extends LoginPage {
 		robot.delay(450);
 		robot.keyPress(KeyEvent.VK_TAB);
 		robot.keyPress(KeyEvent.VK_ENTER);
-		Thread.sleep(5000);
+		
 		String value=newDeliveryboy.getText();
 		return value;
 	}
@@ -117,7 +119,8 @@ public class ManageDeliveryBoyPage extends LoginPage {
 	}
 	public String passworddetailscheck() throws InterruptedException {
 		guobj.clickCommand(passwordShow);
-		Thread.sleep(5000);
+		
+		
 		String value=passwordDetails.getText();
 		return value;
 	

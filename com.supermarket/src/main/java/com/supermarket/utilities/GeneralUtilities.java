@@ -74,7 +74,16 @@ public class GeneralUtilities {
 		select.selectByVisibleText(text);
 	}	
 	//This is for accepting an alert
-		
+	public void selectByindex(WebElement element, int index) {
+		Select select= new Select(element);
+		select.selectByIndex(index);
+	}	
+	
+	public void selectByvalue(WebElement element, String text) {
+		Select select= new Select(element);
+		select.selectByValue(text);
+	}
+	
 	public void acceptAlert(WebDriver driver) {
 		driver.switchTo().alert().accept();
 	}
@@ -94,4 +103,18 @@ public class GeneralUtilities {
 		
 		
 	}
+	
+	public String getTitle(WebDriver driver) {
+		String title=driver.getTitle();
+		return title;
+		
+	}
+	
+	public String getcurrentUrl(WebDriver driver) {
+		String title=driver.getCurrentUrl();
+		return title;
+		
+	}
+	
+	
 }

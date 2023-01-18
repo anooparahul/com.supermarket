@@ -28,6 +28,25 @@ public class WaitUtility {
 		WebDriverWait explicitwait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		explicitwait.until(ExpectedConditions.elementSelectionStateToBe(element, true) );
 	}
+	
+	public void explicitWaitelementseen(WebDriver driver, WebElement element) {
+		WebDriverWait explicitwait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		explicitwait.until(ExpectedConditions.visibilityOf(element) );
+	}
+	
+	public void explicitWaitelementclickable(WebDriver driver, WebElement element) {
+		WebDriverWait explicitwait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		explicitwait.until(ExpectedConditions.elementToBeClickable(element) );
+	}
+	
+	public void explicitWaitalertpresent(WebDriver driver, WebElement element) {
+		WebDriverWait explicitwait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		explicitwait.until(ExpectedConditions.alertIsPresent() );
+	}
+	
+	public void generalSleep() throws InterruptedException {
+		Thread.sleep(5000);
+	}
 }
 
 
