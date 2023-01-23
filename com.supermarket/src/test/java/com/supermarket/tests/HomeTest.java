@@ -25,7 +25,6 @@ public class HomeTest extends BaseClass{
     
 
 	  HomePage hmobj=new HomePage(driver);
-	  //hmobj.navigateToHomePage();
 	  hmobj.managepageslink();
 	  Assert.assertEquals(hmobj.getmanagepagesheading(),Constants.manageuserheading,"Passed");
 	  hmobj.navigateBack();

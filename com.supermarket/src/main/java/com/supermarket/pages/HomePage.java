@@ -141,7 +141,6 @@ public class HomePage extends LoginPage {
 	
 	public String getmanagepagesheading() {
 		String text=managepageheading.getText();
-		//System.out.println(text);
 		return text;
 	}
 	

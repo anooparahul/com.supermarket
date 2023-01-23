@@ -3,6 +3,7 @@ package com.supermarket.pages;
 import java.io.IOException;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -85,14 +86,19 @@ public class AdminUsersPage extends LoginPage {
 	@FindBy(xpath="//a[@class='btn btn-sm btn btn-danger btncss']")
 	WebElement deletebutton;
 	
+	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']//tr/td[1]")
+	List<WebElement> allcol;
 	
-	public void adduser() throws IOException {
+	public boolean adduser() throws IOException {
 		guobj.clickCommand(newbutton);
 		guobj.sendkeysCommand(username, exobj.readStringData(4, 1));
 		guobj.sendkeysCommand(password, exobj.readStringData(5, 1));
 		Select s=new Select(usertype);
 		s.selectByValue(exobj.readStringData(6, 1));
 		saveButton.click();
+		String value= exobj.readStringData(4, 1);
+		boolean status=guobj.validateDynamicWebtableColm(allcol, value);
+		return status;
 	}
 	
 	public String getaddmessage() {
@@ -104,7 +110,6 @@ public class AdminUsersPage extends LoginPage {
 	public void navigateToAdminUserPage() throws IOException {
 		
 	  	  HomePage hmobj=new HomePage(driver);
-	  	  //wtobj.explicitWaitelementSelectionStateToBe(driver, hmobj.adminuserslink);
 	  	  hmobj.navigateToHomePage();
 	  	  hmobj.adminUserslink();
 	}
@@ -114,26 +119,26 @@ public class AdminUsersPage extends LoginPage {
 		return value;
 	}
 	
-	
-	
-	
-	
 	public void navigatetoHome() {
 		home.click();
 	}
 	
-	public void searchaddeduser() throws IOException {
+	public boolean searchaddeduser() throws IOException {
 		guobj.clickCommand(search);
 		guobj.sendkeysCommand(usernamesearch, exobj.readStringData(4, 1));
+		String value=exobj.readStringData(4, 1);
 		Select s=new Select(usertypesearch);
 		s.selectByValue(exobj.readStringData(6, 1));
 		Searchbutton.click();
+		boolean status=guobj.validateDynamicWebtableColm(allcol, value);
+		return status;
+		
 	}
 	
 	public String passworddetailscheck() throws InterruptedException {
 		guobj.clickCommand(detailssymbol);
 		
-		Thread.sleep(5000);
+		wtobj.generalSleep();
 		String value=passworddetails.getText();
 		System.out.println(value);
 		return value;
@@ -141,7 +146,7 @@ public class AdminUsersPage extends LoginPage {
 	}
 
 	public String userstatusdeactvate() {
-		//status.getText();
+		
 		guobj.clickCommand(statusactive);
 		
 		String value=statusdeactive.getText();
@@ -149,7 +154,7 @@ public class AdminUsersPage extends LoginPage {
 	}
 	
 	public String userstatusactvate() {
-		//status.getText();
+		
 		guobj.clickCommand(statusdeactive);
 		
 		String value=statusactive.getText();

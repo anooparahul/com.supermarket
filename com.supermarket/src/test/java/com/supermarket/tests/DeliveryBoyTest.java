@@ -18,53 +18,45 @@ public class DeliveryBoyTest extends BaseClass {
 	public void addDeliveryBoy() throws IOException, AWTException, InterruptedException {
 		ManageDeliveryBoyPage mdpobj=new ManageDeliveryBoyPage(driver);
 		mdpobj.navigatetodeliveryboy();
-		 String value=mdpobj.addDeliveryBoy();
-		  Assert.assertEquals(value, Constants.addnew,"Passed");  
+		  Assert.assertTrue(mdpobj.addDeliveryBoy());  
 	}
 	
 	@Test(priority=2,enabled=true)
 	public void searchDeliveryBoy() throws IOException, AWTException {
 		ManageDeliveryBoyPage mdpobj=new ManageDeliveryBoyPage(driver);
-		//mdpobj.navigatetodeliveryboy();
-		 String value=mdpobj.searchDeliveryBoy();
-		 Assert.assertEquals(value, Constants.addnew,"Passed");  
+	
+		 Assert.assertTrue(mdpobj.searchDeliveryBoy());  
 	}
 	
 	@Test(priority=3,enabled=true)
 	public void passworddetailschecking() throws InterruptedException {
 		ManageDeliveryBoyPage mdpobj=new ManageDeliveryBoyPage(driver);
-		//mdpobj.navigatetodeliveryboy();
-		 String value=mdpobj.passworddetailscheck();
-		 Assert.assertEquals(value, Constants.password,"Passed"); 
+	
+		 Assert.assertEquals(mdpobj.passworddetailscheck(), Constants.password,"Passed"); 
 	}
 	  @Test(priority=4)
 	  public void makeuserdeactive() {
 		  ManageDeliveryBoyPage mdpobj=new ManageDeliveryBoyPage(driver);
-		  String value=mdpobj.userstatusdeactvate();
-		  Assert.assertEquals(value,Constants.deactive,"Passed");
+		  Assert.assertEquals(mdpobj.userstatusdeactvate(),Constants.deactive,"Passed");
 	  }
 	  @Test(priority=5)
 	  public void makeuseractive() {
 		  ManageDeliveryBoyPage mdpobj=new ManageDeliveryBoyPage(driver);
-		  String value=mdpobj.userstatusactvate();
-		  Assert.assertEquals(value,Constants.active,"Passed");
+		  Assert.assertEquals(mdpobj.userstatusactvate(),Constants.active,"Passed");
 	  }
 	  
 	
 	@Test(priority=6)
 	public void updateDeliveryBoy() throws AWTException, InterruptedException, IOException {
 		ManageDeliveryBoyPage mdpobj=new ManageDeliveryBoyPage(driver);
-		//mdpobj.navigatetodeliveryboy();
-		 String value=mdpobj.editDeliveryboy();
-		 Assert.assertTrue(true, value);
+		 Assert.assertTrue(true, mdpobj.editDeliveryboy());
 	}
 	
 	  @Test(priority=7)
 	  public void userRemoval() {
 		  ManageDeliveryBoyPage mdpobj=new ManageDeliveryBoyPage(driver);
 		 
-		  String value= mdpobj.deleteuser();
-		  Assert.assertTrue(true, value); 
+		  Assert.assertTrue(true, mdpobj.deleteuser()); 
 
 	  }
 }

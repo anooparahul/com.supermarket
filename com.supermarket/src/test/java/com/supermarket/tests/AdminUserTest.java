@@ -18,42 +18,32 @@ public class AdminUserTest extends BaseClass {
 	  
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
 	  admobj.navigateToAdminUserPage();
-	  admobj.adduser();
-	  String value=admobj.addeddatacheck();
-	  Assert.assertEquals(value, Constants.addnew);  
-
-	  //admobj.navigatetoHome();
+	  Assert.assertTrue(admobj.adduser()) ;
   }
   
   @Test(priority=2)
   public void searchuser() throws IOException {
 	 
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
-	  //admobj.navigateToAdminUserPage();
-	  admobj.searchaddeduser();
-	  admobj.addeddatacheck();
+	  Assert.assertTrue(admobj.searchaddeduser());
 	  
   }
   
   @Test(priority=5)
   public void passworddetails() throws InterruptedException {
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
-	  //admobj.passworddetailscheck();
-	  String value=admobj.passworddetailscheck();
-	  Assert.assertEquals(value,Constants.password,"Psssed");
+	  Assert.assertEquals(admobj.passworddetailscheck(),Constants.password,"Psssed");
 
   }
   @Test(priority=3)
   public void makeuserdeactive() {
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
-	  String value=admobj.userstatusdeactvate();
-	  Assert.assertEquals(value,Constants.deactive,"Passed");
+	  Assert.assertEquals(admobj.userstatusdeactvate(),Constants.deactive,"Passed");
   }
   @Test(priority=4)
   public void makeuseractive() {
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
-	  String value=admobj.userstatusactvate();
-	  Assert.assertEquals(value,Constants.active);
+	  Assert.assertEquals(admobj.userstatusactvate(),Constants.active);
   }
   
   
@@ -61,8 +51,7 @@ public class AdminUserTest extends BaseClass {
   public void userRemoval() {
 	  AdminUsersPage admobj=new AdminUsersPage(driver);
 	  admobj.deleteuser();
-	  String value=admobj.addeddatacheck();
-	  Assert.assertNotEquals(value, Constants.addnew);  
+	  Assert.assertNotEquals(admobj.addeddatacheck(), Constants.addnew);  
 
   }
 }

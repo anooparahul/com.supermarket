@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -17,9 +19,12 @@ import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestResult;
 
+import com.github.javafaker.Faker;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GeneralUtilities {
+    Faker faker = new Faker();
 	WebDriver driver;
 	public WebDriver browserLaunch(String url,String browser) {
 		if(browser.equalsIgnoreCase("edge")) {
@@ -38,26 +43,26 @@ public class GeneralUtilities {
 		driver.get(url);
 		return driver;
 	}
-	//This is for the click action
+	
 	public void clickCommand(WebElement element) {
 		element.click();
 		
 	}
-	//This is for the clear actions
+	
 	public void clearCommand(WebElement element) {
 		element.clear();
 	}
-	//This is for the send keys action
+	
 	public void sendkeysCommand(WebElement element,String text) {
 		element.sendKeys(text);
 		
 	}
-	//This is for mouse actions
+	
 	public void movetoevementCommand(WebElement element,WebDriver driver) {
 		Actions acobj=new Actions(driver);
 		acobj.moveToElement(element).build().perform();
 	}
-	//This is for taking the screen shot
+	
 	public void takescreenshot(WebDriver driver,String testcaseName) throws IOException {
 		
 		Date d=new Date();
@@ -68,12 +73,12 @@ public class GeneralUtilities {
 	
 		  
 	}
-	//This is for selecting the drop down value
+	
 	public void selectByVisibleText(WebElement element, String text) {
 		Select select= new Select(element);
 		select.selectByVisibleText(text);
 	}	
-	//This is for accepting an alert
+	
 	public void selectByindex(WebElement element, int index) {
 		Select select= new Select(element);
 		select.selectByIndex(index);
@@ -88,13 +93,13 @@ public class GeneralUtilities {
 		driver.switchTo().alert().accept();
 	}
 	
-	//This is for dismissing an alert
+	
 	
 	public void dismissAlert(WebDriver driver) {
 		driver.switchTo().alert().dismiss();
 	}
 	
-	//This is for entering text in promt alert and then accept
+	
 	
 	public void promptAlert(WebDriver driver,String text) {
 		Alert alert=driver.switchTo().alert();
@@ -116,5 +121,30 @@ public class GeneralUtilities {
 		
 	}
 	
+	public boolean validateDynamicWebtableColm(List<WebElement> allcol,String value) {
+		boolean status=false;
+			for(WebElement ele:allcol) {
+			String value1=ele.getText();
+			
+			if(value1.contains(value)) {
+				status=true;
+				break;
+				
+			}
+	}
+			return status;
+	}
 	
+	public void fackername(WebElement element) {
+		
+		String name=faker.name().fullName();
+		element.sendKeys(name);
+	}
+	
+public String fackeremail(WebElement element) {
+		
+		String email=faker.internet().emailAddress();
+		element.sendKeys(email);
+		return email;
+	}
 }

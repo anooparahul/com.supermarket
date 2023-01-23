@@ -18,7 +18,6 @@ public class FileUploadUtility {
 		StringSelection s=new StringSelection(fileupload);
 		  Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
 		  element.click();
-		  //Create robot class
 		  Robot robot=new Robot();
 		  robot.delay(250);
 		  Thread.sleep(3000);

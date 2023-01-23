@@ -8,15 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 	WebDriver driver;
-	//input[@name='username']
-	//input[@name='password']
-	//button[@type='submit']
-	
-//	By username=By.xpath("//input[@name='username']");
-//	By password=By.xpath("//input[@name='password']");
-//	By signin=By.xpath("//button[@type='submit']");
-//	By dashboard=By.xpath("//li[text()='Dashboard']");
-//	By errormessge=By.xpath("//div[@class='alert alert-danger alert-dismissible']");
 	
 	@FindBy(xpath="//input[@name='username']") 
 	WebElement username;
@@ -42,7 +33,6 @@ public class LoginPage {
 	
 	public String gerErrorMessage() {
 		String errorMessage=errormessge.getText();
-	//System.out.println(errorMessage);
 		return errorMessage;
 	}
 	

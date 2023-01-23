@@ -6,8 +6,12 @@
   <test name="Test">
   <parameter name="browser" value="chrome"></parameter>
       <classes>
-     
-          <class name="com.supermarket.tests.ListSliderTest"/>
+  <class name="com.supermarket.tests.LoginTest"/>
+      <class name="com.supermarket.tests.HomeTest"/>
+      <class name="com.supermarket.tests.AdminUserTest"/>
+      <class name="com.supermarket.tests.DeliveryBoyTest"/>
+      <class name="com.supermarket.tests.ManageListPageTest"/>
+      <class name="com.supermarket.tests.ListSliderTest"/>
        </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

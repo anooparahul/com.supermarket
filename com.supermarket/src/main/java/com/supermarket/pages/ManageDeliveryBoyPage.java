@@ -4,7 +4,9 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -89,7 +91,10 @@ public class ManageDeliveryBoyPage extends LoginPage {
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
 	WebElement deletemessage;
 	
-	public String addDeliveryBoy() throws AWTException, InterruptedException, IOException {
+	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']//tr/td[1]")
+	List<WebElement> allcol;
+	
+	public boolean addDeliveryBoy() throws AWTException, InterruptedException, IOException {
 		guobj.clickCommand(newButton);
 		
 		guobj.sendkeysCommand(name, exobj.readStringData(10, 1));
@@ -103,17 +108,18 @@ public class ManageDeliveryBoyPage extends LoginPage {
 		robot.keyPress(KeyEvent.VK_TAB);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		
-		String value=newDeliveryboy.getText();
-		return value;
+		String value= exobj.readStringData(10, 1);
+		boolean status=guobj.validateDynamicWebtableColm(allcol, value);
+		return status;
 	}
 	
-	public String searchDeliveryBoy() throws IOException {
+	public boolean searchDeliveryBoy() throws IOException {
 		guobj.clickCommand(searchButton);
 		guobj.sendkeysCommand(namesearch, exobj.readStringData(10, 1));
 		guobj.clickCommand(searchButton1);
-		String value=newDeliveryboy.getText();
-		
-		return value;
+		String value= exobj.readStringData(10, 1);
+		boolean status=guobj.validateDynamicWebtableColm(allcol, value);
+		return status;
 		
 		
 	}
@@ -141,7 +147,6 @@ public class ManageDeliveryBoyPage extends LoginPage {
 	public void navigatetodeliveryboy() throws IOException
 	{
 		HomePage hmobj=new HomePage(driver);
-	  	  //wtobj.explicitWaitelementSelectionStateToBe(driver, hmobj.adminuserslink);
 	  	  hmobj.navigateToHomePage();
 	  	  hmobj.deliveryboylink();
 	}
@@ -158,7 +163,6 @@ public class ManageDeliveryBoyPage extends LoginPage {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		Thread.sleep(5000);
 		String value=updatemessage.getText();
-		//System.out.println(value);
 		return value;
 	}
 	
@@ -166,7 +170,6 @@ public class ManageDeliveryBoyPage extends LoginPage {
 		guobj.clickCommand(deleteIcon);
 		driver.switchTo().alert().accept();
 		String value=deletemessage.getText();
-		//System.out.println(value);
 		return value;
 	}
 }

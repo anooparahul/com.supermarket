@@ -28,7 +28,6 @@ public class LoginTest extends BaseClass {
 	ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 	LoginPage lpobj;
 	ExcelUtility exobj=new ExcelUtility();
-	//String url="https://groceryapp.uniqassosiates.com/admin/login";
 	@Test(priority=2, retryAnalyzer=RetryAnalizerUtility.class)
 	  public void loginWithValidCredentials() throws IOException {
 		  
@@ -45,9 +44,4 @@ public class LoginTest extends BaseClass {
 		  lpobj.login(username,password);
 		  Assert.assertEquals(lpobj.gerErrorMessage(), Constants.expectedResult);
 	  }
-	  
-  
-
-  
-
 }
